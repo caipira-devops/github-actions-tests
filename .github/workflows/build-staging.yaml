@@ -1,15 +1,17 @@
 name: "Build Staging"
 on:
-  push:
+  pull_request:
+    types:
+      - 'closed'
     branches:
-      - develop
+      - 'main'
 jobs:
   build_qa:
-    name: Build QA
+    name: Build Staging
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Run a one-line script
-        run: echo "Push Branch Develop - Build Staging"
+        run: echo "Pull Request closed on branch main - Build Staging"
