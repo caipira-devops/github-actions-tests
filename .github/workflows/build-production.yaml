@@ -1,15 +1,15 @@
 name: "Build Production"
 on:
-  push:
-    branches:
-      - develop
+  release:
+    types:
+      - 'published'
 jobs:
   build_qa:
-    name: Build QA
+    name: Build Production
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Run a one-line script
-        run: echo "Push Branch Develop - Build Production"
+        run: echo "Release Published - Build Production"
